@@ -1,1 +1,759 @@
+:root {
+  --navy: #102d51;
+  --navy-dark: #071a2f;
+  --navy-soft: #173a63;
+  --gold: #f3ba2a;
+  --gold-dark: #d69a14;
+  --green: #315c45;
+  --sage: #7c8074;
+  --white: #ffffff;
+  --paper: #fbfbf7;
+  --mist: #eef3ef;
+  --line: #dce4df;
+  --ink: #17242d;
+  --muted: #5c6970;
+  --shadow: 0 22px 60px rgba(16, 45, 81, 0.18);
+  --radius: 8px;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.58;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 16px;
+  z-index: 100;
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: var(--radius);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 251, 247, 0.96);
+  border-bottom: 1px solid rgba(16, 45, 81, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.nav-wrap,
+.container,
+.hero-inner {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.nav-wrap {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(16, 45, 81, 0.14);
+}
+
+.brand-text {
+  display: grid;
+  line-height: 1.05;
+}
+
+.brand-text small {
+  margin-top: 4px;
+  color: var(--sage);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: var(--radius);
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background: currentColor;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav a {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.94rem;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  background: var(--white);
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.button.primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.button.primary:hover {
+  background: var(--gold-dark);
+}
+
+.button.secondary {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--navy);
+  border-color: rgba(16, 45, 81, 0.18);
+}
+
+.button.secondary:hover {
+  border-color: var(--gold);
+}
+
+.button.navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.hero {
+  position: relative;
+  min-height: 720px;
+  color: var(--white);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(7, 26, 47, 0.96) 0%, rgba(16, 45, 81, 0.82) 43%, rgba(49, 92, 69, 0.28) 100%),
+    url("../images/signal-flag-outdoors-hero.webp");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 8px;
+  background: var(--gold);
+}
+
+.hero-inner {
+  position: relative;
+  padding: 92px 0 82px;
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 250px;
+  gap: 64px;
+  align-items: end;
+}
+
+.hero-logo {
+  width: 230px;
+  justify-self: end;
+  align-self: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  color: #ffe6a0;
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 3px;
+  background: var(--gold);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--navy);
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.15rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+.hero h1 {
+  color: var(--white);
+  max-width: 800px;
+}
+
+.hero p {
+  max-width: 660px;
+  margin: 0 0 28px;
+  color: #e8f0f5;
+  font-size: clamp(1.06rem, 2.2vw, 1.28rem);
+}
+
+.hero-actions,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-strip {
+  background: var(--navy-dark);
+  color: var(--white);
+}
+
+.hero-strip .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  padding: 0;
+}
+
+.stat {
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.07);
+  border-top: 4px solid var(--gold);
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.18rem;
+  color: var(--white);
+}
+
+.stat span {
+  color: #d5e1e9;
+  font-weight: 700;
+}
+
+.section {
+  padding: 84px 0;
+}
+
+.section.soft {
+  background: var(--mist);
+}
+
+.section.navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section.navy h2,
+.section.navy h3 {
+  color: var(--white);
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.section-head.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-head p,
+.lead {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.section.navy .section-head p,
+.section.navy .lead {
+  color: #dbe7ef;
+}
+
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 10px 26px rgba(16, 45, 81, 0.06);
+}
+
+.card.dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.section.navy .card p,
+.card.dark p {
+  color: #dbe7ef;
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: #fff2c7;
+  color: var(--navy);
+  font-weight: 950;
+  margin-bottom: 18px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 46px;
+  align-items: center;
+}
+
+.photo-panel {
+  min-height: 480px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(16, 45, 81, 0.06), rgba(16, 45, 81, 0.2)),
+    url("../images/signal-flag-outdoors-hero.webp");
+  background-size: cover;
+  background-position: 60% center;
+  box-shadow: var(--shadow);
+}
+
+.logo-card {
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  background: var(--white);
+}
+
+.logo-card img {
+  width: min(250px, 86%);
+  height: auto;
+}
+
+.check-list,
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0;
+  display: grid;
+  gap: 12px;
+}
+
+.check-list li,
+.plain-list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.48em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px #fff2c7;
+}
+
+.plain-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.page-hero {
+  background:
+    linear-gradient(135deg, var(--navy-dark), var(--navy) 64%, var(--green));
+  color: var(--white);
+  padding: 82px 0;
+  border-bottom: 6px solid var(--gold);
+}
+
+.page-hero h1 {
+  color: var(--white);
+  font-size: clamp(2.35rem, 5vw, 4.35rem);
+}
+
+.page-hero p {
+  max-width: 760px;
+  color: #dbe7ef;
+  font-size: 1.15rem;
+}
+
+.banner {
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--navy-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 5px solid var(--gold);
+}
+
+.banner h2 {
+  color: var(--white);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-bottom: 8px;
+}
+
+.banner p {
+  margin: 0;
+  color: #dbe7ef;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--navy);
+  font-weight: 850;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 13px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--white);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(243, 186, 42, 0.28);
+  border-color: var(--gold);
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.contact-list a,
+.contact-list span {
+  display: block;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 850;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.socials a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  color: var(--navy);
+  font-weight: 850;
+  background: var(--white);
+}
+
+.socials a:hover {
+  border-color: var(--gold);
+}
+
+.site-footer {
+  background: var(--navy-dark);
+  color: var(--white);
+  padding: 46px 0 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.footer-logo {
+  width: 128px;
+  height: auto;
+  margin-bottom: 14px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 10px;
+}
+
+.site-footer h2,
+.site-footer h3 {
+  color: var(--white);
+}
+
+.site-footer p,
+.site-footer a {
+  color: #d3e0e7;
+}
+
+.footer-links {
+  display: grid;
+  gap: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 18px;
+  color: #b8c8d2;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 78px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero::before {
+    background-image:
+      linear-gradient(180deg, rgba(7, 26, 47, 0.9) 0%, rgba(16, 45, 81, 0.78) 62%, rgba(49, 92, 69, 0.46) 100%),
+      url("../images/signal-flag-outdoors-hero.webp");
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-logo {
+    width: 170px;
+    justify-self: start;
+    order: -1;
+  }
+
+  .hero-strip .container,
+  .grid.three,
+  .grid.two,
+  .split,
+  .footer-grid,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 62px 0;
+  }
+
+  .photo-panel,
+  .logo-card {
+    min-height: 340px;
+  }
+
+  .banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text small {
+    display: none;
+  }
+
+  .hero-inner {
+    padding: 58px 0 58px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .stat {
+    padding: 18px;
+  }
+}
